@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/internal_patch.dart';
+
 import 'package:flutter/material.dart';
 
 typedef ToDoListAddedCallback = Function(
@@ -45,7 +47,7 @@ class _ToDoDialogState extends State<ToDoDialog> {
           child: const Text('OK'),
           onPressed: () {
             setState(() {
-              Navigator.pop(context);
+              Navigator.pop(context, true);
             });
           },
         ),
