@@ -1,4 +1,4 @@
-import 'dart:nativewrappers/_internal/vm/lib/internal_patch.dart';
+//import 'dart:nativewrappers/_internal/vm/lib/internal_patch.dart';
 
 import 'package:flutter/material.dart';
 
@@ -42,14 +42,16 @@ class _ToDoDialogState extends State<ToDoDialog> {
       ),
       actions: <Widget>[
         ElevatedButton(
-          key: const Key("OkButton"),
+          key: const Key("OKButton"),
           style: yesStyle,
           child: const Text('OK'),
-          onPressed: () {
+          onPressed: () { 
             setState(() {
+              widget.onListAdded(valueText, _inputController);
               Navigator.pop(context, true);
             });
-          },
+          
+          }
         ),
 
         // https://stackoverflow.com/questions/52468987/how-to-turn-disabled-button-into-enabled-button-depending-on-conditions
@@ -62,8 +64,7 @@ class _ToDoDialogState extends State<ToDoDialog> {
               onPressed: value.text.isNotEmpty
                   ? () {
                       setState(() {
-                        widget.onListAdded(valueText, _inputController);
-                        Navigator.pop(context);
+                        Navigator.pop(context, false);
                       });
                     }
                   : null,
