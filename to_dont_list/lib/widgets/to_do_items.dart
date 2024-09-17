@@ -76,7 +76,8 @@ class ToDoListItem extends StatelessWidget {
         item.name,
         style: _getTextStyle(context),
       ),
-      trailing: ElevatedButton(
+      trailing: FloatingActionButton(
+        backgroundColor: _getColor(context),
         onPressed: togglePriority(item),
         child: chooseIcon(item)
     ));
