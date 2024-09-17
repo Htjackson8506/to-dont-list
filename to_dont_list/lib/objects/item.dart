@@ -4,7 +4,7 @@ class Item {
   Item({required this.name});
 
   final String name;
-  bool priority = false;
+  bool priority = true;
 
   String abbrev() {
     return name.substring(0, 1);
