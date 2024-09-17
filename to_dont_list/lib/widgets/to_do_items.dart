@@ -38,6 +38,12 @@ class ToDoListItem extends StatelessWidget {
     );
   }
 
+  togglePriority(Item item){
+    if (item.getPriority()){
+      
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -57,6 +63,9 @@ class ToDoListItem extends StatelessWidget {
         item.name,
         style: _getTextStyle(context),
       ),
+      trailing: ElevatedButton(
+        onPressed: togglePriority(item),
+        child: const Icon(Icons.star_border)),
     );
   }
 }
