@@ -60,8 +60,12 @@ class ToDoListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        onListChanged(item, completed);
-        item.priority = !item.priority;
+        if (!item.priority) {
+          onListChanged(item, completed);
+        }
+        else {
+          null;
+        }
       },
       onLongPress: completed
           ? () {
