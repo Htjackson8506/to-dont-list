@@ -59,8 +59,9 @@ class ToDoListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-       onTap: () {
+      onTap: () {
         onListChanged(item, completed);
+        item.priority = !item.priority;
       },
       onLongPress: completed
           ? () {
@@ -76,9 +77,8 @@ class ToDoListItem extends StatelessWidget {
         item.name,
         style: _getTextStyle(context),
       ),
-      trailing: FloatingActionButton(
+      trailing: CircleAvatar(
         backgroundColor: _getColor(context),
-        onPressed: togglePriority(item),
         child: chooseIcon(item)
     ));
   }
