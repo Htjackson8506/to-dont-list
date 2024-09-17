@@ -40,14 +40,26 @@ class ToDoListItem extends StatelessWidget {
 
   togglePriority(Item item){
     if (item.getPriority()){
-      
+      item.priority = false;
+    }
+    else {
+      item.priority = true;
+    }
+  }
+
+  Icon chooseIcon(Item item){
+    if (item.getPriority()){
+      return const Icon(Icons.star);
+    }
+    else {
+      return const Icon(Icons.star_border);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {
+       onTap: () {
         onListChanged(item, completed);
       },
       onLongPress: completed
@@ -58,6 +70,7 @@ class ToDoListItem extends StatelessWidget {
       leading: CircleAvatar(
         backgroundColor: _getColor(context),
         child: Text(item.abbrev()),
+        
       ),
       title: Text(
         item.name,
@@ -65,7 +78,7 @@ class ToDoListItem extends StatelessWidget {
       ),
       trailing: ElevatedButton(
         onPressed: togglePriority(item),
-        child: const Icon(Icons.star_border)),
-    );
+        child: chooseIcon(item)
+    ));
   }
 }
