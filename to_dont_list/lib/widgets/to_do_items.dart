@@ -67,7 +67,7 @@ class ToDoListItem extends StatelessWidget {
           null;
         }
       },
-      onLongPress: completed
+      onLongPress: completed && !item.priority
           ? () {
               onDeleteItem(item);
             }
@@ -80,10 +80,7 @@ class ToDoListItem extends StatelessWidget {
       title: Text(
         item.name,
         style: _getTextStyle(context),
-      ),
-      trailing: CircleAvatar(
-        backgroundColor: _getColor(context),
-        child: chooseIcon(item)
-    ));
+      )
+      );
   }
 }
